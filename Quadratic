@@ -1,0 +1,35 @@
+/* develop a java program that develops real solutions to the quadratic equation ax^2+bx+c=0. Read in a,b,c and use the quadratic formula, if the discriminate b^2-4ac is negative, display a message stating that there are no real solutions. */
+
+import java.util.Scanner;
+
+public class Quadratic {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a: ");
+        double a = scanner.nextDouble();
+        
+        System.out.print("Enter b: ");
+        double b = scanner.nextDouble();
+        
+        System.out.print("Enter c: ");
+        double c = scanner.nextDouble();
+        
+        double discriminant = b * b - 4 * a * c;
+        
+        if (discriminant < 0) {
+            System.out.println("There are no real solutions");
+        } else {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            
+            if (discriminant == 0) {
+                System.out.println("One real solution exists: " + root1);
+            } else {
+                System.out.println("Two real solutions exist: " + root1 + " and " + root2);
+            }
+        }
+        
+        scanner.close();
+    }
+}
